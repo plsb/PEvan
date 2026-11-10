@@ -1,0 +1,6 @@
+import {forwardRef,useImperativeHandle,useRef,useState} from 'react';
+import {Music2,Pause,Play} from 'lucide-react';
+import {wedding} from '../config/wedding';
+import {asset} from './Shared';
+export type MusicHandle={play:()=>void};
+export default forwardRef<MusicHandle>(function MusicPlayer(_,ref){const audio=useRef<HTMLAudioElement>(null);const [playing,setPlaying]=useState(false);const [error,setError]=useState('');const play=()=>{setError('');audio.current?.play().catch(()=>{setPlaying(false);setError('Não foi possível tocar a música. Tente novamente.');});};useImperativeHandle(ref,()=>({play}));if(!wedding.music.src)return null;return <div className="music-player"><audio ref={audio} src={asset(wedding.music.src)} loop preload="none" onPlay={()=>setPlaying(true)} onPause={()=>setPlaying(false)} onError={()=>{setPlaying(false);setError('A música está indisponível no momento.')}}/><button title={wedding.music.title||'Nossa trilha sonora'} aria-label={playing?'Pausar música':'Reproduzir música'} aria-pressed={playing} onClick={()=>playing?audio.current?.pause():play()}><Music2 size={18}/><span className={playing?'music-bars playing':'music-bars'}><i/><i/><i/></span>{playing?<Pause size={14}/>:<Play size={14}/>}</button><span className="audio-error" role="status">{error}</span></div>});

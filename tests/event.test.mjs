@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import ts from 'typescript';
+import {readFileSync} from 'node:fs';
+const source=ts.transpileModule(readFileSync(new URL('../src/lib/event.ts',import.meta.url),'utf8'),{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
+const {eventTimestamp,countdownParts,whatsappUrl,safeHttpsUrl}=await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
+test('Fortaleza converte 18h para 21h UTC independentemente do navegador',()=>assert.equal(eventTimestamp('2026-11-19','18:00','America/Fortaleza'),Date.parse('2026-11-19T21:00:00Z')));
+test('horário ausente ou inválido oculta contagem',()=>{for(const time of ['','25:00','18:90'])assert.equal(eventTimestamp('2026-11-19',time,'America/Fortaleza'),null)});
+test('contagem decompõe unidades e não fica negativa',()=>{assert.deepEqual(countdownParts(90061000,0),[1,1,1,1]);assert.deepEqual(countdownParts(0,1),[0,0,0,0]);});
+test('WhatsApp exige número válido e preserva mensagem Unicode',()=>{assert.equal(whatsappUrl('','oi'),null);const url=whatsappUrl('+55 (88) 99999-1234','Olá ❤️');assert.equal(url,'https://wa.me/5588999991234?text=Ol%C3%A1%20%E2%9D%A4%EF%B8%8F');});
+test('links externos rejeitam protocolos executáveis',()=>{assert.equal(safeHttpsUrl('javascript:alert(1)'),null);assert.equal(safeHttpsUrl(''),null);assert.equal(safeHttpsUrl('https://maps.google.com/'),'https://maps.google.com/');});

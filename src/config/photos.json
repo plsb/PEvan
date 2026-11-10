@@ -1,0 +1,154 @@
+[
+  {
+    "name": "1.jpg",
+    "width": 640,
+    "height": 640,
+    "variants": [
+      {
+        "file": "photos/1-480.webp",
+        "width": 480
+      },
+      {
+        "file": "photos/1-960.webp",
+        "width": 640
+      },
+      {
+        "file": "photos/1-1600.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "name": "2.jpg",
+    "width": 1440,
+    "height": 1440,
+    "variants": [
+      {
+        "file": "photos/2-480.webp",
+        "width": 480
+      },
+      {
+        "file": "photos/2-960.webp",
+        "width": 960
+      },
+      {
+        "file": "photos/2-1600.webp",
+        "width": 1440
+      }
+    ]
+  },
+  {
+    "name": "3.jpg",
+    "width": 960,
+    "height": 668,
+    "variants": [
+      {
+        "file": "photos/3-480.webp",
+        "width": 480
+      },
+      {
+        "file": "photos/3-960.webp",
+        "width": 960
+      },
+      {
+        "file": "photos/3-1600.webp",
+        "width": 960
+      }
+    ]
+  },
+  {
+    "name": "4.JPG",
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "file": "photos/4-480.webp",
+        "width": 480
+      },
+      {
+        "file": "photos/4-960.webp",
+        "width": 960
+      },
+      {
+        "file": "photos/4-1600.webp",
+        "width": 1600
+      }
+    ]
+  },
+  {
+    "name": "5.png",
+    "width": 1128,
+    "height": 1538,
+    "variants": [
+      {
+        "file": "photos/5-480.webp",
+        "width": 480
+      },
+      {
+        "file": "photos/5-960.webp",
+        "width": 960
+      },
+      {
+        "file": "photos/5-1600.webp",
+        "width": 1128
+      }
+    ]
+  },
+  {
+    "name": "6.png",
+    "width": 844,
+    "height": 1352,
+    "variants": [
+      {
+        "file": "photos/6-480.webp",
+        "width": 480
+      },
+      {
+        "file": "photos/6-960.webp",
+        "width": 844
+      },
+      {
+        "file": "photos/6-1600.webp",
+        "width": 844
+      }
+    ]
+  },
+  {
+    "name": "7.png",
+    "width": 1103,
+    "height": 952,
+    "variants": [
+      {
+        "file": "photos/7-480.webp",
+        "width": 480
+      },
+      {
+        "file": "photos/7-960.webp",
+        "width": 960
+      },
+      {
+        "file": "photos/7-1600.webp",
+        "width": 1103
+      }
+    ]
+  },
+  {
+    "name": "8.png",
+    "width": 1290,
+    "height": 2283,
+    "variants": [
+      {
+        "file": "photos/8-480.webp",
+        "width": 480
+      },
+      {
+        "file": "photos/8-960.webp",
+        "width": 960
+      },
+      {
+        "file": "photos/8-1600.webp",
+        "width": 1290
+      }
+    ]
+  }
+]

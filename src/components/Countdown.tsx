@@ -1,0 +1,4 @@
+import {useEffect,useState} from 'react';
+import {wedding} from '../config/wedding';
+import {countdownParts,eventTimestamp} from '../lib/event';
+export default function Countdown(){const [now,setNow]=useState(Date.now);const {date,time,timezone}=wedding.event;const target=eventTimestamp(date,time,timezone);useEffect(()=>{if(target===null)return;const interval=setInterval(()=>setNow(Date.now()),1000);return()=>clearInterval(interval)},[target]);if(target===null)return null;if(now>=target)return <p className="countdown-past">O grande dia chegou. Que o amor continue sendo celebrado!</p>;return <div className="countdown" role="group" aria-label="Contagem regressiva para o casamento">{countdownParts(target,now).map((value,i)=><div key={i}><strong>{String(value).padStart(2,'0')}</strong><span>{['Dias','Horas','Minutos','Segundos'][i]}</span></div>)}</div>}
